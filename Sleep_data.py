@@ -24,10 +24,12 @@ heart_rate = sleep_data["Heart Rate"].to_numpy()
 daily_steps = sleep_data["Daily Steps"].to_numpy()
 
 #Part 3: Loop + conditional filtering (keeps arrays aligned) ----------
+#Need to create empty lists to story only valid data
 age_f, sleep_duration_f, sleep_quality_f = [], [], []
 stress_level_f, physical_activity_f = [], []
 heart_rate_f, daily_steps_f = [], []
 
+#Track how many rows got dropped
 dropped = 0
 for a, sd, sq, sl, hr, steps, pa in zip(
     age, sleep_duration, sleep_quality, stress_level, heart_rate, daily_steps, physical_activity
