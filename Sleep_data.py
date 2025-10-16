@@ -56,26 +56,8 @@ mask = (
     sleep_data["Heart Rate"].between(45, 110) &
     sleep_data["Daily Steps"].between(1000, 20000)
 )
-    #If data passes all checks, add to filtered lists
-    if keep:
-        age_f.append(a)
-        sleep_duration_f.append(sd)
-        sleep_quality_f.append(sq)
-        stress_level_f.append(sl)
-        heart_rate_f.append(hr)
-        daily_steps_f.append(steps)
-        physical_activity_f.append(pa)
-    else:
-        dropped += 1
 
-# Convert cleaned lists back to NumPy arrays
-age_f = np.array(age_f)
-sleep_duration_f = np.array(sleep_duration_f)
-sleep_quality_f = np.array(sleep_quality_f)
-stress_level_f = np.array(stress_level_f)
-heart_rate_f = np.array(heart_rate_f)
-daily_steps_f = np.array(daily_steps_f)
-physical_activity_f = np.array(physical_activity_f)
+filtered = sleep_data.loc[mask].copy()
 
 #Print summary of filtering results
 print(f"\nFiltered rows dropped: {dropped}")
