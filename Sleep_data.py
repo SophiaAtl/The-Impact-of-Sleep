@@ -36,6 +36,7 @@ dropped = 0
 for a, sd, sq, sl, hr, steps, pa in zip(
     age, sleep_duration, sleep_quality, stress_level, heart_rate, daily_steps, physical_activity
 ):
+    #Keep data only if all conditions are within realistic ranges
     keep = (
     (3  <= sd <= 12) and
     (1  <= sq <= 10) and
