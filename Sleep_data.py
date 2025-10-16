@@ -74,14 +74,3 @@ print("Final dataset shape:", sleep_data.shape)
 print("Final columns:", list(sleep_data.columns))
 print(sleep_data.head())
 
-#Create a cleaned DataFrame with only valid rows
-sleep_data_filtered = pd.DataFrame({
-    "Age": age_f,
-    "Sleep Duration": sleep_duration_f,
-    "Quality of Sleep": sleep_quality_f,
-    "Stress Level": stress_level_f,
-    "Heart Rate": heart_rate_f,
-    "Daily Steps": daily_steps_f,
-    "Physical Activity Level": physical_activity_f
-})
-# Goal: keep only plausible, analysis-ready rows so we can study how sleep duration/quality relates to stress, health (heart rate), and activity.
