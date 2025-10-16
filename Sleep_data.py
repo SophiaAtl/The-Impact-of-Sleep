@@ -57,6 +57,7 @@ for a, sd, sq, sl, hr, steps, pa in zip(
     else:
         dropped += 1
 
+# Convert cleaned lists back to NumPy arrays
 age_f = np.array(age_f)
 sleep_duration_f = np.array(sleep_duration_f)
 sleep_quality_f = np.array(sleep_quality_f)
