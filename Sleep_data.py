@@ -23,28 +23,38 @@ bmi = sleep_data["BMI Category"]  # this one is text, so we'll skip for now
 heart_rate = sleep_data["Heart Rate"].to_numpy()
 daily_steps = sleep_data["Daily Steps"].to_numpy()
 
-#Part 3: Loop + conditional filtering (keeps arrays aligned) ----------
-#Need to create empty lists to story only valid data
-age_f, sleep_duration_f, sleep_quality_f = [], [], []
-stress_level_f, physical_activity_f = [], []
-heart_rate_f, daily_steps_f = [], []
+# Part 3: Clean and filter dataset for our project
 
-#Track how many rows got dropped
-dropped = 0
+# 1. Remove unnecessary columns that are not relevant to our analysis
+columns_to_drop = [
+    "Person ID",         # Identification only, not analytical
+    "Occupation",        # Not relevant to sleep-stress link
+    "BMI Category",      # Only matters for obesity-focused research
+    "Blood Pressure"     # Too specific for our study
+]
+sleep_data = sleep_data.drop(columns=columns_to_drop, errors="ignore")
 
-#Check each record and apply filters
-for a, sd, sq, sl, hr, steps, pa in zip(
-    age, sleep_duration, sleep_quality, stress_level, heart_rate, daily_steps, physical_activity
-):
-    #Keep data only if all conditions are within realistic ranges
-    keep = (
-    (3  <= sd <= 12) and
-    (1  <= sq <= 10) and
-    (1  <= sl <= 10) and
-    (40 <= hr <= 120) and
-    (0  <= steps <= 50000) and
-    (15 <= a  <= 90) and
-    (0  <= pa <= 100)
+# 2. Keep only columns that are relevant to our research questions
+columns_to_keep = [
+    "Gender",
+    "Age",
+    "Sleep Duration",
+    "Quality of Sleep",
+    "Stress Level",
+    "Heart Rate",
+    "Daily Steps",
+    "Sleep Disorder"
+]
+sleep_data = sleep_data[columns_to_keep]
+
+# 3. Filter out unrealistic or implausible values
+mask = (
+    sleep_data["Age"].between(18, 70) &
+    sleep_data["Sleep Duration"].between(4.0, 10.0) &
+    sleep_data["Quality of Sleep"].between(2, 10) &
+    sleep_data["Stress Level"].between(1, 10) &
+    sleep_data["Heart Rate"].between(45, 110) &
+    sleep_data["Daily Steps"].between(1000, 20000)
 )
     #If data passes all checks, add to filtered lists
     if keep:
