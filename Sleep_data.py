@@ -66,11 +66,13 @@ heart_rate_f = np.array(heart_rate_f)
 daily_steps_f = np.array(daily_steps_f)
 physical_activity_f = np.array(physical_activity_f)
 
+#Print summary of filtering results
 print(f"\nFiltered rows dropped: {dropped}")
 print(f"Kept rows: {len(sleep_duration_f)}")
 print("Arrays aligned:", len(age_f), len(sleep_duration_f), len(sleep_quality_f),
       len(stress_level_f), len(heart_rate_f), len(daily_steps_f), len(physical_activity_f))
 
+#Create a cleaned DataFrame with only valid rows
 sleep_data_filtered = pd.DataFrame({
     "Age": age_f,
     "Sleep Duration": sleep_duration_f,
