@@ -59,11 +59,6 @@ mask = (
 
 filtered = sleep_data.loc[mask].copy()
 
-#Print summary of filtering results
-print(f"\nFiltered rows dropped: {dropped}")
-print(f"Kept rows: {len(sleep_duration_f)}")
-print("Arrays aligned:", len(age_f), len(sleep_duration_f), len(sleep_quality_f),
-      len(stress_level_f), len(heart_rate_f), len(daily_steps_f), len(physical_activity_f))
 
 #Create a cleaned DataFrame with only valid rows
 sleep_data_filtered = pd.DataFrame({
