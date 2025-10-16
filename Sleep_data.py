@@ -31,18 +31,21 @@ heart_rate_f, daily_steps_f = [], []
 
 #Track how many rows got dropped
 dropped = 0
+
+#Check each record and apply filters
 for a, sd, sq, sl, hr, steps, pa in zip(
     age, sleep_duration, sleep_quality, stress_level, heart_rate, daily_steps, physical_activity
 ):
     keep = (
-        (3 <= sd <= 12) and
-        (1 <= sq <= 10) and
-        (1 <= sl <= 10) and
-        (40 <= hr <= 120) and
-        (0 <= steps <= 50000) and
-        (15 <= a <= 90) and
-        (0 <= pa <= 100)
-    )
+    (3  <= sd <= 12) and
+    (1  <= sq <= 10) and
+    (1  <= sl <= 10) and
+    (40 <= hr <= 120) and
+    (0  <= steps <= 50000) and
+    (15 <= a  <= 90) and
+    (0  <= pa <= 100)
+)
+    #If data passes all checks, add to filtered lists
     if keep:
         age_f.append(a)
         sleep_duration_f.append(sd)
@@ -54,7 +57,6 @@ for a, sd, sq, sl, hr, steps, pa in zip(
     else:
         dropped += 1
 
-# Convert lists back to NumPy arrays
 age_f = np.array(age_f)
 sleep_duration_f = np.array(sleep_duration_f)
 sleep_quality_f = np.array(sleep_quality_f)
