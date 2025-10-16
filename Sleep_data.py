@@ -82,5 +82,4 @@ sleep_data_filtered = pd.DataFrame({
     "Daily Steps": daily_steps_f,
     "Physical Activity Level": physical_activity_f
 })
-# Goal: keep only plausible, analysis-ready rows so we can study how
-# sleep duration/quality relate to stress, health (heart rate), and activity.
+# Goal: keep only plausible, analysis-ready rows so we can study how sleep duration/quality relates to stress, health (heart rate), and activity.
