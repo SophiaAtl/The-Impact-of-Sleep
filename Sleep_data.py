@@ -59,6 +59,20 @@ mask = (
 
 filtered = sleep_data.loc[mask].copy()
 
+print(f"Rows before filtering: {len(sleep_data)}")
+print(f"Rows after filtering unrealistic values: {len(filtered)}")
+
+# 4. Remove duplicate rows if any exist
+filtered = filtered.drop_duplicates()
+print(f"Rows after removing duplicates: {len(filtered)}")
+
+# 5. Update dataset to use the cleaned version
+sleep_data = filtered.reset_index(drop=True)
+
+# 6. Display summary of final dataset
+print("Final dataset shape:", sleep_data.shape)
+print("Final columns:", list(sleep_data.columns))
+print(sleep_data.head())
 
 #Create a cleaned DataFrame with only valid rows
 sleep_data_filtered = pd.DataFrame({
