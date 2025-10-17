@@ -47,8 +47,10 @@ columns_to_keep = [
 ]
 sleep_data = sleep_data[columns_to_keep]
 
+# ---------- Part 3: Manipulating the data ----------
 
-filtered = sleep_data.loc[mask].copy()
+# remove unnecessary columns
+sleep_data = sleep_data.drop(["Person ID", "Occupation", "BMI Category", "Blood Pressure"], axis=1, errors="ignore")
 
 print(f"Rows before filtering: {len(sleep_data)}")
 print(f"Rows after filtering unrealistic values: {len(filtered)}")
