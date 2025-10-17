@@ -47,12 +47,13 @@ print(clean.head())
 # ---------- Part 4: Plotting the data ----------
 import matplotlib.pyplot as plt
 
-#1)Plot a histogram of "Quality of sleep" from the cleaned dataset
-# Shows how sleep quality scores are distributed accross all indviduales
+#1)Plot a histogram of Quality of sleep from the cleaned dataset
+# Shows how sleep quality scores are distributed accross all individuales
 
 #convert String values to numerical values
 clean["Quality of Sleep"] = pd.to_numeric(clean["Quality of Sleep"], errors='coerce')  
 
+#Create histogram
 clean['Quality of Sleep'].plot.hist(
     bins=np.arange(clean['Quality of Sleep'].min(), clean['Quality of Sleep'].max() +1,1), # so the bars can touch eachother          
     color='skyblue',     
@@ -104,7 +105,7 @@ plt.show()
 
 #4) Plot with 2 subplots side by side
 #Compare Physical activity levels and sleep duration and heart rate and sleep duration 
-#to see what is the impact of an active life style on sleep and mostly see if there is a possible relationship
+#to see what is the impact of an active life style on sleep and mostly see if there is any possible relationships
 
 #Create 2 subplots side by side
 fig, axes = plt.subplots(1, 2, figsize=(14, 5))  
@@ -120,7 +121,8 @@ axes[0].set_ylabel('Quality of Sleep(h)')
 axes[0].set_title('The effect of physical activity on Sleep Duration')
 axes[0].legend()
 
-x2 = clean['Heart Rate']
+#SubPlot 2: The effect of Heart Rate on Sleep Duration
+x2 = clean['Heart Rate'] 
 y2 = clean['Sleep Duration']
 axes[1].scatter(x2, y2, color='green', label='Data points')
 m2, b2 = np.polyfit(x2, y2, 1)
