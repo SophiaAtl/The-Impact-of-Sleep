@@ -71,16 +71,6 @@ plt.show()
 
 
 
-
-
-
-
-
-
-
-
-
-
 #3) Plot with grid
 #Bar graph: The average quality of sleep by BMI Category
 #To compare the weight of a person (using the BMI indication ) to the effect on the quality of sleep
