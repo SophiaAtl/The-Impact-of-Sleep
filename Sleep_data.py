@@ -58,15 +58,6 @@ for i in range(len(sleep_data)):
     if list(sleep_data.iloc[i]) not in unique_rows:
         unique_rows.append(list(sleep_data.iloc[i]))
 
-# 4. Remove duplicate rows if any exist
-filtered = filtered.drop_duplicates()
-print(f"Rows after removing duplicates: {len(filtered)}")
-
-# 5. Update dataset to use the cleaned version
-sleep_data = filtered.reset_index(drop=True)
-
-# 6. Display summary of final dataset
-print("Final dataset shape:", sleep_data.shape)
-print("Final columns:", list(sleep_data.columns))
-print(sleep_data.head())
+# rebuild the dataset without duplicates
+clean = pd.DataFrame(unique_rows, columns=sleep_data.columns)
 
