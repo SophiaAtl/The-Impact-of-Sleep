@@ -17,18 +17,16 @@ sleep_duration = sleep_data["Sleep Duration"].to_numpy()
 sleep_quality = sleep_data["Quality of Sleep"].to_numpy()
 physical_activity = sleep_data["Physical Activity Level"].to_numpy()
 stress_level = sleep_data["Stress Level"].to_numpy()
-#Skip BMI category
-bmi = sleep_data["BMI Category"]  # this one is text, so we'll skip for now
+
 #Include heart rate and daily steps as numeric arrays
 heart_rate = sleep_data["Heart Rate"].to_numpy()
 daily_steps = sleep_data["Daily Steps"].to_numpy()
 
 
-
 # ---------- Part 3: Manipulating the data ----------
 
 # remove unnecessary columns
-sleep_data = sleep_data.drop(["Person ID", "Occupation", "BMI Category", "Blood Pressure"], axis=1, errors="ignore")
+sleep_data = sleep_data.drop(["Person ID", "Occupation", "Blood Pressure"], axis=1, errors="ignore")
 
 # use a loop and conditional to remove duplicates
 unique_rows = []
