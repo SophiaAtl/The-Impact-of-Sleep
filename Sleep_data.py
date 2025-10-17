@@ -23,29 +23,7 @@ bmi = sleep_data["BMI Category"]  # this one is text, so we'll skip for now
 heart_rate = sleep_data["Heart Rate"].to_numpy()
 daily_steps = sleep_data["Daily Steps"].to_numpy()
 
-# Part 3: Clean and filter dataset for our project
 
-# 1. Remove unnecessary columns that are not relevant to our analysis
-columns_to_drop = [
-    "Person ID",         # Identification only, not analytical
-    "Occupation",        # Not relevant to sleep-stress link
-    "BMI Category",      # Only matters for obesity-focused research
-    "Blood Pressure"     # Too specific for our study
-]
-sleep_data = sleep_data.drop(columns=columns_to_drop, errors="ignore")
-
-# 2. Keep only columns that are relevant to our research questions
-columns_to_keep = [
-    "Gender",
-    "Age",
-    "Sleep Duration",
-    "Quality of Sleep",
-    "Stress Level",
-    "Heart Rate",
-    "Daily Steps",
-    "Sleep Disorder"
-]
-sleep_data = sleep_data[columns_to_keep]
 
 # ---------- Part 3: Manipulating the data ----------
 
