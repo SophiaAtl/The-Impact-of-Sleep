@@ -75,6 +75,10 @@ x = np.arange(len(clean))
 y_sleep = clean['Sleep Duration']
 y_hr    = clean['Heart Rate']
 
+plt.figure(figsize=(10, 5))
+plt.plot(x, y_sleep, label='Sleep Duration (hours)', color='blue', linestyle='-', linewidth=2)
+plt.plot(x, y_hr,    label='Heart Rate (BPM)',     color='red',  linestyle='--', linewidth=2)
+
 
 
 
