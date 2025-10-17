@@ -61,3 +61,7 @@ for i in range(len(sleep_data)):
 # rebuild the dataset without duplicates
 clean = pd.DataFrame(unique_rows, columns=sleep_data.columns)
 
+print("Rows before filtering:", len(sleep_data))
+print("Rows after removing duplicates:", len(clean))
+print("Final columns:", list(clean.columns))
+print(clean.head())
