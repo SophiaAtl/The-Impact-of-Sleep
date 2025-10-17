@@ -68,6 +68,13 @@ plt.grid(True,linestyle='--',alpha=0.6)
 plt.show()
 
 #2) Plot with more than 1 array 
+# Compare Sleep Duration and Heart Rate for the same participants
+
+# x-axis: participant index
+x = np.arange(len(clean))
+y_sleep = clean['Sleep Duration']
+y_hr    = clean['Heart Rate']
+
 
 
 
