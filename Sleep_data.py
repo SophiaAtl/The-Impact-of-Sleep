@@ -52,8 +52,11 @@ sleep_data = sleep_data[columns_to_keep]
 # remove unnecessary columns
 sleep_data = sleep_data.drop(["Person ID", "Occupation", "BMI Category", "Blood Pressure"], axis=1, errors="ignore")
 
-print(f"Rows before filtering: {len(sleep_data)}")
-print(f"Rows after filtering unrealistic values: {len(filtered)}")
+# use a loop and conditional to remove duplicates
+unique_rows = []
+for i in range(len(sleep_data)):
+    if list(sleep_data.iloc[i]) not in unique_rows:
+        unique_rows.append(list(sleep_data.iloc[i]))
 
 # 4. Remove duplicate rows if any exist
 filtered = filtered.drop_duplicates()
