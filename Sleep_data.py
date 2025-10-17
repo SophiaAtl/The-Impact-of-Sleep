@@ -65,3 +65,6 @@ print("Rows before filtering:", len(sleep_data))
 print("Rows after removing duplicates:", len(clean))
 print("Final columns:", list(clean.columns))
 print(clean.head())
+
+# after you build `clean`
+clean.to_csv("Sleep_data_clean.csv", index=False)
