@@ -79,6 +79,13 @@ plt.figure(figsize=(10, 5))
 plt.plot(x, y_sleep, label='Sleep Duration (hours)', color='blue', linestyle='-', linewidth=2)
 plt.plot(x, y_hr,    label='Heart Rate (BPM)',     color='red',  linestyle='--', linewidth=2)
 
+plt.title('Sleep Duration vs Heart Rate (same participants)')
+plt.xlabel('Participant index')
+plt.ylabel('Value')
+plt.grid(True, linestyle='--', alpha=0.6)
+plt.legend()
+plt.tight_layout()
+plt.show()
 
 
 
