@@ -47,15 +47,6 @@ columns_to_keep = [
 ]
 sleep_data = sleep_data[columns_to_keep]
 
-# 3. Filter out unrealistic or implausible values
-mask = (
-    sleep_data["Age"].between(18, 70) &
-    sleep_data["Sleep Duration"].between(4.0, 10.0) &
-    sleep_data["Quality of Sleep"].between(2, 10) &
-    sleep_data["Stress Level"].between(1, 10) &
-    sleep_data["Heart Rate"].between(45, 110) &
-    sleep_data["Daily Steps"].between(1000, 20000)
-)
 
 filtered = sleep_data.loc[mask].copy()
 
