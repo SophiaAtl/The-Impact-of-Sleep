@@ -159,6 +159,8 @@ plt.show()
 
 #Part 4 
 #H Scatter Plot
+# This section generates a scatter plot comparing the quality of sleep and the number of daily steps.
+# It helps identify if physical activity levels influence sleep quality.
 plt.scatter(sleep_data["Daily Steps"], sleep_data["Quality of Sleep"],
             color="purple")
 plt.xlabel("Daily Steps")
