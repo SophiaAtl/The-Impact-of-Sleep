@@ -173,6 +173,8 @@ plt.show()
 
 #Part 4, 
 #i, (Sleep Disorder) pie chart
+# This section creates a pie chart showing the proportion of each sleep disorder in the dataset.
+# It provides insight into the most common sleep disorders among participants.
 rt_count=sleep_data.groupby("Sleep Disorder").size()
 print(rt_count)
 y=rt_count.values
