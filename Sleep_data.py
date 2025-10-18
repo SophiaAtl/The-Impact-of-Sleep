@@ -145,6 +145,8 @@ plt.show()
 
 #Part 4 
 #g bar chart
+# This section creates a bar chart showing the average sleep duration grouped by stress level.
+# It helps visualize how stress levels may affect the average duration of sleep.
 average_sleep=sleep_data.groupby("Sleep Duration")["Stress Level"].mean()
 plt.bar(average_sleep.index,average_sleep.values,color="blue")
 plt.title("Averge Sleep By Stress Level")
