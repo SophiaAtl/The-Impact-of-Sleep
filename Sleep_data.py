@@ -69,16 +69,24 @@ plt.grid(True,linestyle='--',alpha=0.6)
 plt.show()
 
 #2) Plot with more than 1 array 
+# Compare Sleep Duration and Heart Rate for the same participants
 
+# x-axis: participant index
+x = np.arange(len(clean))
+y_sleep = clean['Sleep Duration']
+y_hr    = clean['Heart Rate']
 
+plt.figure(figsize=(10, 5))
+plt.plot(x, y_sleep, label='Sleep Duration (hours)', color='blue', linestyle='-', linewidth=2)
+plt.plot(x, y_hr,    label='Heart Rate (BPM)',     color='red',  linestyle='--', linewidth=2)
 
-
-
-
-
-
-
-
+plt.title('Sleep Duration vs Heart Rate (same participants)')
+plt.xlabel('Participant index')
+plt.ylabel('Value')
+plt.grid(True, linestyle='--', alpha=0.6)
+plt.legend()
+plt.tight_layout()
+plt.show()
 
 
 
@@ -137,13 +145,56 @@ plt.tight_layout()
 plt.show()
 
 
+#Part 4 
+#g bar chart
+# This section creates a bar chart showing the average sleep duration grouped by stress level.
+# It helps visualize how stress levels may affect the average duration of sleep.
+average_sleep=sleep_data.groupby("Sleep Duration")["Stress Level"].mean()
+plt.bar(average_sleep.index,average_sleep.values,color="blue")
+plt.title("Averge Sleep By Stress Level")
+plt.xlabel("Sleep Duration")
+plt.ylabel("Stress Level")
+plt.show()
+
+#This bar chart demonstrates the average sleep by stress levels. This bar chart proves that the less sleep the people that participated in the data set, they had higher stress levels as it is een when the bar chart reaches the top of the y-axis.
 
 
- 
+#Part 4 
+#H Scatter Plot
+# This section generates a scatter plot comparing the quality of sleep and the number of daily steps.
+# It helps identify if physical activity levels influence sleep quality.
+plt.scatter(sleep_data["Daily Steps"], sleep_data["Quality of Sleep"],
+            color="purple")
+plt.xlabel("Daily Steps")
+plt.ylabel("Quality of Sleep")
+plt.title("Relationship between Quality of Sleep and Daily Steps")
+plt.grid(True)
+plt.show()
+
+#This scatter plot demonstrtes the relationship between quality of sleep and daily steps. On the x-axis, the amount of daily steps are shown by those who participated in the dataset and on the y-axis we have the quality of sleep. The scatter plot shows very mixed responses as their are dots everywhere and nothing is proportional.
+
+#Part 4, 
+#i, (Sleep Disorder) pie chart
+# This section creates a pie chart showing the proportion of each sleep disorder in the dataset.
+# It provides insight into the most common sleep disorders among participants.
+rt_count=sleep_data.groupby("Sleep Disorder").size()
+print(rt_count)
+y=rt_count.values
+mylabels=rt_count.index
+
+plt.pie(y, labels=mylabels)
+plt.title("Sleep Disorders in dataset")
+plt.show()
+
+#This pie chart demontstrates the sleep disorders in the dataset. The 2 most common sleep disorders are Slepp Apnea and Insomnia which come out to almost 50% each.
 
 
 
 
+
+
+    
+    
 
 
 
